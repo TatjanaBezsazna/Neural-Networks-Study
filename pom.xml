@@ -12,6 +12,7 @@
 	<modules>
 		<module>user-interface</module>
 		<module>neural-network</module>
+		<module>multilayer-neural-net</module>
 	</modules>
 
 	<parent>

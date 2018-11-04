@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="multilayer-neural-net" />
+        <module name="user-interface" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="multilayer-neural-net" target="1.8" />
+      <module name="neural-network" target="1.8" />
+      <module name="simple-neural-network" target="1.8" />
+      <module name="user-interface" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

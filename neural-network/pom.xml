@@ -10,5 +10,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>neural-network</artifactId>
+	<packaging>pom</packaging>
+	<modules>
+		<module>../multilayer-neural-net</module>
+	</modules>
 
 </project>

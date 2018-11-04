@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+#parse("templates/includes/head.vm")
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1>Select exercise:</h1>
+        <div class="btn-group">
+            <a href="/exercise-one" class="btn btn-default">Part One Exercise One</a>
+            <a href="/exercise-two" class="btn btn-default">Part Two Exercise One</a>
+            <a href="/exercise-three" class="btn btn-default">Part Two Exercise Two (0)</a>
+            <a href="/exercise-four" class="btn btn-default">Part Two Exercise Two (1) </a>
+            <a href="/exercise-five" class="btn btn-default">Part Two Exercise Two (3)</a>
+        <div>
+    </div>
+</body>
+</html>

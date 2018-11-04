@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+#parse("templates/includes/head.vm")
+</head>
+
+<body>
+    <div class="container-fluid">
+        <table id="input-data-table" class="table table-bordered table-striped">
+            <tr>
+                #foreach($input in $trainingInputLayers.get(0))
+                  #set($index = $velocityCount - 1)
+                  <th>X${index}</th>
+                #end
+                  <th>Expected output</th>
+                #if($finalWeights)
+                   #foreach($weight in $finalWeights)
+                   #set($index = $velocityCount - 1)
+                     <th>W${index}</th>
+                   #end
+                   <th>Actual output</th>
+                #end
+            </tr>
+            #foreach($layer in $trainingInputLayers)
+            #set($index = $velocityCount - 1)
+            <tr>
+                #foreach($input in $layer)
+                  <td>$math.roundTo(2, ${input})</td>
+                #end
+                  <th>$math.roundTo(2, ${trainingOutputLayers.get($index)})</th>
+                  #if($finalWeights)
+                     #foreach($weight in $finalWeights)
+                       <th>$weight</th>
+                     #end
+                     <th>$math.roundTo(2, ${outputs[$index]})</th>
+                  #end
+            </tr>
+            #end
+        <table>
+        <form action=${linkToAction} method="POST">
+          <div class="form-group">
+              <label for="numberOfIterations">Enter Desired Number of Learning iterations (epochs):</label>
+              <input type="number" name="numberOfIterations" class="form-control">
+          </div>
+          <div class="form-group">
+              <label for="numberOfIterations">Enter Desired Learning Rate:</label>
+              <input type="number" name="learningRate" step="any" class="form-control">
+          </div>
+          <div class="form-group">
+          <label for="activationFunction">Select Desired Activation function:</label>
+          <select name="activationFunction" class="form-control">
+            <option value="linearActivationFunction">Linear</option>
+            <option value="rectifiedLinearActivationFunction">Rectified Linear</option>
+            <option value="sigmoidActivationFunction">Sigmoid</option>
+            <option value="sinusoidActivationFunction">Sinusoid</option>
+            <option value="tanhActivationFunction">Tanh</option>
+            <option selected="selected" value="stepActivationFunction">Unit Step</option>
+          </select>
+          </div>
+          <input type="submit" class="btn btn-default" value="Train Network">
+        </form>
+        #if($iterationsPerformed)
+            <p class="alert alert-success"><b>$!{iterationsPerformed}</b> training iterations have been performed on the data set with $!{activationFunction} activation function.<p>
+            <p class="alert alert-warning"><b>NOTE:</b>Outputs have been rounded to two decimal points</p>
+        #end
+    </div>
+</body>
+</html>
